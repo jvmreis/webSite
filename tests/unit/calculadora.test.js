@@ -16,7 +16,7 @@ test("espero 1 seja 1", () => {
   expect(1).toBe(1);
 });
 
-const calculator = require("../models/calculator.js");
+const calculator = require("../../models/calculator.js");
 
 test("somar 2 + 2 deveria ser 4", () => {
   const resultado = calculator.somar(2, 2);
