@@ -10,8 +10,17 @@ async function query(queryObject) {
     password: process.env.POSTGRES_PASSWORD,
   });
   await client.connect();
-  const result = await client.query(queryObject);
-  await client.end();
+
+  // Using try and catch to handle connection errors
+  try {
+    const result = await client.query(queryObject);
+    return result;
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
+  } finally {
+    await client.end();
+  }
+
   return result;
 }
 export default {
