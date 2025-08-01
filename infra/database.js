@@ -1,16 +1,7 @@
 import { Client } from "pg";
 
 async function query(queryObject) {
-  const client = new Client({
-    user: process.env.POSTGRES_HOST,
-    port: process.env.POSTGRES_PORT,
-    host: process.env.POSTGRES_HOST,
-    user: process.env.POSTGRES_USER,
-    database: process.env.POSTGRES_DB,
-    password: process.env.POSTGRES_PASSWORD,
-    ssl: getSSLValues(),
-  });
-
+  let client;
   console.log("postgress credentials:", {
     user: process.env.POSTGRES_USER,
     host: process.env.POSTGRES_HOST,
@@ -21,7 +12,7 @@ async function query(queryObject) {
 
   // Using try and catch to handle connection errors
   try {
-    await client.connect();
+    client = await getNewClient();
     const result = await client.query(queryObject);
     return result;
   } catch (error) {
@@ -33,8 +24,25 @@ async function query(queryObject) {
 
   return result;
 }
+
+async function getNewClient() {
+  const client = new Client({
+    user: process.env.POSTGRES_HOST,
+    port: process.env.POSTGRES_PORT,
+    host: process.env.POSTGRES_HOST,
+    user: process.env.POSTGRES_USER,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
+    ssl: getSSLValues(),
+  });
+
+  await client.connect();
+
+  return client;
+}
 export default {
   query: query,
+  getNewClient: getNewClient,
 };
 
 function getSSLValues() {

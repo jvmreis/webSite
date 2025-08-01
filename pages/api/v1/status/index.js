@@ -14,6 +14,7 @@ async function status(req, res) {
   //const databaseName = req.query.databaseName;
   console.log("databaseName:", databaseName);
   const databaseOpenConnectionsResult = await database.query(
+    // Using parameterized query to prevent SQL injection
     {
       text: "SELECT count(*):: int FROM pg_stat_activity WHERE datname = $1;",
       values: [databaseName],
