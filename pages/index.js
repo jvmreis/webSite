@@ -1,7 +1,7 @@
 function home() {
   return (
     <div>
-      <h1> welcome to Scinex </h1>
+      <h1> welcome to jv </h1>
       <p>This is the home page.</p>
     </div>
   );
