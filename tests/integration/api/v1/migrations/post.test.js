@@ -1,12 +1,14 @@
 import database from "infra/database.js";
+import orchestrator from "tests/orchestrator.js";
 
-beforeAll(cleanDatabase);
-async function cleanDatabase() {
-  // Implement your database cleaning logic here
+beforeAll(async () => {
+  await orchestrator.waitForAllServices();
+    // Implement your database cleaning logic here
   await database.query("drop schema public cascade; create schema public;");
   // This could involve dropping tables, truncating data, etc.
   console.log("Cleaning database...");
-}
+});
+
 test("POST to /api/v1/migrations should return 200", async () => {
   const response = await fetch("http://localhost:3000/api/v1/migrations", {
     method: "POST",
