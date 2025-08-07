@@ -1,5 +1,6 @@
 import database from "infra/database.js";
 import orchestrator from "tests/orchestrator.js";
+
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
     // Implement your database cleaning logic here
