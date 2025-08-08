@@ -3,7 +3,6 @@ beforeAll(async () => {
   await orchestrator.waitForAllServices();
 });
 
-
 test("nome do teste", callbackFunction);
 
 function callbackFunction() {
