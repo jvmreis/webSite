@@ -22,12 +22,10 @@ async function query(queryObject) {
     await client.end();
   }
 
-  return result;
 }
 
 async function getNewClient() {
   const client = new Client({
-    user: process.env.POSTGRES_HOST,
     port: process.env.POSTGRES_PORT,
     host: process.env.POSTGRES_HOST,
     user: process.env.POSTGRES_USER,
@@ -40,10 +38,11 @@ async function getNewClient() {
 
   return client;
 }
-export default {
+const database ={
   query: query,
   getNewClient: getNewClient,
 };
+export default database;
 
 function getSSLValues() {
   if (process.env.POSTGRES_CA) {

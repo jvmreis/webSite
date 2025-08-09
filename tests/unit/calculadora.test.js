@@ -3,19 +3,22 @@ beforeAll(async () => {
   await orchestrator.waitForAllServices();
 });
 
-test("nome do teste", callbackFunction);
+// eslint-disable-next-line jest/no-commented-out-tests
+//test("nome do teste", callbackFunction);
 
-function callbackFunction() {
-  console.log("callback function is here");
-}
+//function callbackFunction() {
+//  console.log("callback function is here");
+//}
 
-test("func reduzida", () => {
-  console.log("callback function is here");
-});
+// eslint-disable-next-line jest/no-commented-out-tests
+//test("func reduzida", () => {
+//  console.log("callback function is here");
+//});
 
-test("func reduzida 2", function () {
-  console.log("callback function is here");
-});
+// eslint-disable-next-line jest/no-commented-out-tests
+//test("func reduzida 2", function () {
+//  console.log("callback function is here");
+//});
 
 test("espero 1 seja 1", () => {
   expect(1).toBe(1);
