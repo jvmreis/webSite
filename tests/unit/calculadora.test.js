@@ -35,7 +35,7 @@ test("somar 2 + 100 deveria ser 102", () => {
   expect(resultado).toBe(102);
 });
 
-test("somar banana + 100 deveria ser 'Erro' ", () => {
+test("somar banana + 100 deveria ser 'Erro'", () => {
   const resultado = calculator.somar("banana", 100);
   console.log("resultado", resultado);
   expect(resultado).toBe("Erro");
