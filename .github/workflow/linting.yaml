@@ -1,9 +1,9 @@
 name: Linting
 
- on: pull_request:
+  on: pull_request:
 
 jobs:
-  jest:
+  prettier:
     name: Prettier
     runs-on: ubuntu-latest
   steps:
@@ -15,5 +15,5 @@ jobs:
     
   -run: npm ci
 
-  -run: npm run lint:prettier:
+  -run: npm run lint:prettier:check
 
