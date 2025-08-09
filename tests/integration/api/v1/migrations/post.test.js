@@ -3,7 +3,7 @@ import orchestrator from "tests/orchestrator.js";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
-    // Implement your database cleaning logic here
+  // Implement your database cleaning logic here
   await database.query("drop schema public cascade; create schema public;");
   // This could involve dropping tables, truncating data, etc.
   console.log("Cleaning database...");
