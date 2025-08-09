@@ -21,7 +21,6 @@ async function query(queryObject) {
   } finally {
     await client.end();
   }
-
 }
 
 async function getNewClient() {
@@ -38,7 +37,7 @@ async function getNewClient() {
 
   return client;
 }
-const database ={
+const database = {
   query: query,
   getNewClient: getNewClient,
 };
