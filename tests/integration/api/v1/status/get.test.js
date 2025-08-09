@@ -19,6 +19,7 @@ test("GET to /api/v1/status should return 200", async () => {
   expect(responseBody.dependencies.database.open_connections).toEqual(1);
 });
 
+// eslint-disable-next-line jest/no-commented-out-tests
 //test.only("teste SQL injection", async () => {
 //await fetch("http://localhost:3000/api/v1/status?databaseName=local_db"); // -- iguinora o que vem depois do -- no SQL para corrigir isso usar Query sanization
 //await fetch(
