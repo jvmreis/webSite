@@ -1,10 +1,5 @@
-function home() {
-  return (
-    <div>
-      <h1> welcome to scinex </h1>
-      <p>This is the home page.</p>
-    </div>
-  );
+function Home() {
+  return <h1>Renata, eu amo você. Se você me ama, dá uma risadinha! 😎</h1>;
 }
 
-export default home;
+export default Home;
